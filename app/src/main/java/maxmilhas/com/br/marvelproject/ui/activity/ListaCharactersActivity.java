@@ -1,13 +1,9 @@
 package maxmilhas.com.br.marvelproject.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import android.widget.ListView;
-
 import maxmilhas.com.br.marvelproject.R;
-
 import maxmilhas.com.br.marvelproject.ui.ListaCharactersView;
 
 public class ListaCharactersActivity extends AppCompatActivity {
