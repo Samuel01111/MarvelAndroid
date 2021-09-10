@@ -18,24 +18,28 @@
 
     <TextView
         android:id="@+id/character_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:text="Just a Test"
+        tools:text="Just a Test"
         android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_character"
         app:layout_constraintTop_toTopOf="@+id/image_character" />
 
     <TextView android:id="@+id/character_description"
         android:layout_width="239dp"
-        android:layout_height="94dp"
+        android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="another text to test it"
-        android:textSize="18sp"
+        android:textSize="19sp"
+        tools:text="another text to testdwadawdwadawdadwdawdawawdawawdawdawdawd"
+        android:ellipsize="end"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_character"
         app:layout_constraintTop_toBottomOf="@+id/character_name" />
 
-    <TextView android:id="@+id/character_divisor"
+    <View android:id="@+id/character_divisor"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@android:color/holo_red_dark"

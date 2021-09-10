@@ -11,7 +11,7 @@ public class ListaCharactersView {
 
     private final ListaCharactersAdapter adapter;
     private final Context context;
-    Character huck = new Character("Huck", "huck.picture.com/picture", "Im strong and that's it");
+    Character huck = new Character("Huck", "huck.picture.com/picture", "Im strong and that's it teste teste teste test test test test teste tesdtye");
     Character thor = new Character("Thor", "thor.picture.com/picture", "We are strong and that's it");
     Character spider = new Character("Spider-Man", "spider_man.picture.com/picture", "He is strong and that's it");
     Character cap = new Character("Captain America", "captain_america.picture.com/picture", "She is strong and that's it");
