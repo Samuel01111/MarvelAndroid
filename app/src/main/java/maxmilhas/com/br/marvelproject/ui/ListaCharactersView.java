@@ -1,11 +1,16 @@
 package maxmilhas.com.br.marvelproject.ui;
 
 import android.content.Context;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.Arrays;
 import java.util.List;
 import maxmilhas.com.br.marvelproject.model.Character;
-import maxmilhas.com.br.marvelproject.ui.adapter.ListaCharactersAdapter;
+import maxmilhas.com.br.marvelproject.ui.recyclerview.adapter.ListaCharactersAdapter;
+
 
 public class ListaCharactersView {
 
@@ -16,13 +21,26 @@ public class ListaCharactersView {
     Character spider = new Character("Spider-Man", "spider_man.picture.com/picture", "He is strong and that's it");
     Character cap = new Character("Captain America", "captain_america.picture.com/picture", "She is strong and that's it");
     Character iron = new Character("Iron Man", "iron_man.picture.com/picture", "They are strong and that's it");
-    private List<Character> characters =  Arrays.asList(huck, thor, spider, cap, iron);
+//    Character huck1 = new Character("Huck", "huck.picture.com/picture", "Im strong and that's it teste teste teste test test test test teste tesdtye");
+//    Character thor2 = new Character("Thor", "thor.picture.com/picture", "We are strong and that's it");
+//    Character spider3 = new Character("Spider-Man", "spider_man.picture.com/picture", "He is strong and that's it");
+//    Character cap4 = new Character("Captain America", "captain_america.picture.com/picture", "She is strong and that's it");
+//    Character iron5 = new Character("Iron Man", "iron_man.picture.com/picture", "They are strong and that's it");
+    private List<Character> characters =  Arrays.asList(huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron,
+        huck, thor, spider, cap, iron);
 
     public ListaCharactersView(Context context) {
         this.context = context;
         this.adapter = new ListaCharactersAdapter(this.context, characters);
     }
-    public void configAdapter(ListView listaDeCharacter){
+    public void configAdapter(RecyclerView listaDeCharacter){
         listaDeCharacter.setAdapter(adapter);
     }
 }
