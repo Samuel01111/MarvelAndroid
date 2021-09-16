@@ -1,0 +1,34 @@
+{
+  "character": [
+    {
+      "id": "1",
+      "name": "Tuck",
+      "description": "im strong and that’s it",
+      "thumbnail": "marvel.com/picture/huck"
+    },
+    {
+      "id": "2",
+      "name": "Thor",
+      "description": "He strong and that’s it",
+      "thumbnail": "marvel.com/picture/Thor"
+    },
+    {
+      "id": "3",
+      "name": "Thor",
+      "description": "He strong and that’s it",
+      "thumbnail": "marvel.com/picture/Thor"
+    },     {
+      "id": "4",
+      "name": "Thor",
+      "description": "He strong and that’s it",
+      "thumbnail": "marvel.com/picture/Thor"
+    },
+    {
+      "id": "5",
+      "name": "Thor",
+      "description": "He strong and that’s it",
+      "thumbnail": "marvel.com/picture/Thor"
+    }
+
+  ]
+}
