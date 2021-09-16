@@ -1,17 +1,13 @@
 package maxmilhas.com.br.marvelproject.ui.recyclerview.adapter;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.model.Character;
 
@@ -37,10 +33,8 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
         Character character = characters.get(position);
         TextView name = holder.itemView.findViewById(R.id.character_name);
         TextView description = holder.itemView.findViewById(R.id.character_description);
-
         name.setText(character.getName());
         description.setText(character.getDescription());
-
     }
 
     @Override

@@ -1,12 +1,11 @@
 package maxmilhas.com.br.marvelproject.model;
 
 public class Character {
+
     private Integer id;
     private String name;
     private String description;
     private String thumbnail;
-
-
 
     public Character(){
 
@@ -16,7 +15,6 @@ public class Character {
         this.name = name;
         this.thumbnail = thumbnail;
         this.description = description;
-
     }
 
     public String getName() {
