@@ -37,14 +37,17 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
         Character character = characters.get(position);
         TextView name = holder.itemView.findViewById(R.id.character_name);
         TextView description = holder.itemView.findViewById(R.id.character_description);
+
         name.setText(character.getName());
         description.setText(character.getDescription());
+
     }
 
     @Override
     public int getItemCount() {
         return characters.size();
     }
+
     class CharacterViewHolder extends RecyclerView.ViewHolder {
 
         public CharacterViewHolder(@NonNull View itemView) {
