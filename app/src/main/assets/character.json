@@ -27,5 +27,11 @@
       "name": "Iron Man",
       "description": "They are strong and that’s it",
       "thumbnail": "marvel.com/picture/iron_man"
+    },
+    {
+      "id": "6",
+      "name": "Thanos",
+      "description": "this is the guy",
+      "thumbnail": "marvel.com/picture/thano"
     }
 ]

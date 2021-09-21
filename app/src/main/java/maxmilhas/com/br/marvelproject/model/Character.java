@@ -1,5 +1,7 @@
 package maxmilhas.com.br.marvelproject.model;
 
+import kotlin.ranges.CharRange;
+
 public class Character {
 
     private Integer id;
@@ -16,7 +18,12 @@ public class Character {
         this.thumbnail = thumbnail;
         this.description = description;
     }
-
+    public Integer getId(){
+        return id;
+    }
+    public void setId(Integer id){
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

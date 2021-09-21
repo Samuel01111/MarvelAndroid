@@ -1,11 +1,13 @@
 package maxmilhas.com.br.marvelproject.ui.recyclerview.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import maxmilhas.com.br.marvelproject.R;
@@ -33,13 +35,33 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
         Character character = characters.get(position);
         TextView name = holder.itemView.findViewById(R.id.character_name);
         TextView description = holder.itemView.findViewById(R.id.character_description);
+        CardView cardView = holder.itemView.findViewById(R.id.item_character);
+
+        if (character.getId() % 2 == 0){
+            cardView.setCardBackgroundColor(getRedColor());
+            name.setTextColor(Color.WHITE);
+            description.setTextColor(getGrayColor());
+        } else {
+            cardView.setCardBackgroundColor(Color.DKGRAY);
+            name.setTextColor(Color.WHITE);
+            description.setTextColor(Color.LTGRAY);
+        }
+
         name.setText(character.getName());
         description.setText(character.getDescription());
+
     }
 
     @Override
     public int getItemCount() {
         return characters.size();
+    }
+
+    public int getRedColor(){
+        return Color.rgb(255, 86, 74);
+    }
+    public int getGrayColor(){
+        return Color.rgb(59, 59, 59);
     }
 
     class CharacterViewHolder extends RecyclerView.ViewHolder {
@@ -48,4 +70,5 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
             super(itemView);
         }
     }
+
 }
