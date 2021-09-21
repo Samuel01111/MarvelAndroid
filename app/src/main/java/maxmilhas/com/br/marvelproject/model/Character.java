@@ -2,16 +2,18 @@ package maxmilhas.com.br.marvelproject.model;
 
 public class Character {
 
+    private Integer id;
     private String name;
-    private String pictureUrl;
     private String description;
+    private String thumbnail;
 
     public Character(){
 
     }
-    public Character(String name, String pictureUrl, String description) {
+    public Character(Integer id, String name, String thumbnail, String description) {
+        this.id = id;
         this.name = name;
-        this.pictureUrl = pictureUrl;
+        this.thumbnail = thumbnail;
         this.description = description;
     }
 
@@ -23,12 +25,12 @@ public class Character {
         this.name = name;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public String getDescription() {
@@ -38,4 +40,5 @@ public class Character {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
