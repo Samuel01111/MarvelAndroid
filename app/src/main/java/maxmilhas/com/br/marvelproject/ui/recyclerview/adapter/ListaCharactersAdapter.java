@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import maxmilhas.com.br.marvelproject.R;
-import maxmilhas.com.br.marvelproject.model.Character;
+import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 
 public class ListaCharactersAdapter extends RecyclerView.Adapter {
 

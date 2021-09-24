@@ -1,18 +1,16 @@
-package maxmilhas.com.br.marvelproject.model;
-
-import kotlin.ranges.CharRange;
+package maxmilhas.com.br.marvelproject.model.api.entity;
 
 public class Character {
 
     private Integer id;
     private String name;
     private String description;
-    private String thumbnail;
+    private Thumbnail thumbnail;
 
     public Character(){
 
     }
-    public Character(Integer id, String name, String thumbnail, String description) {
+    public Character(Integer id, String name, Thumbnail thumbnail, String description) {
         this.id = id;
         this.name = name;
         this.thumbnail = thumbnail;
@@ -32,11 +30,11 @@ public class Character {
         this.name = name;
     }
 
-    public String getThumbnail() {
+    public Thumbnail getThumbnail() {
         return thumbnail;
     }
 
-    public void setThumbnail(String thumbnail) {
+    public void setThumbnail(Thumbnail thumbnail) {
         this.thumbnail = thumbnail;
     }
 

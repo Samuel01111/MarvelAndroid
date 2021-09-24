@@ -2,14 +2,16 @@ package maxmilhas.com.br.marvelproject.ui;
 
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.List;
-import maxmilhas.com.br.marvelproject.model.Character;
+import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 import maxmilhas.com.br.marvelproject.ui.recyclerview.adapter.ListaCharactersAdapter;
 
 public class ListaCharactersView {
@@ -34,6 +36,9 @@ public class ListaCharactersView {
         Type type = Types.newParameterizedType(List.class, Character.class);
         JsonAdapter<List<Character>> jsonAdapter = moshi.adapter(type);
         List<Character> characters = jsonAdapter.fromJson(jsonString);
+
+
+
 
         this.adapter = new ListaCharactersAdapter(context, characters);
     }
