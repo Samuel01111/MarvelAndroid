@@ -19,27 +19,9 @@ public class ListaCharactersView {
     private Context context;
     private final ListaCharactersAdapter adapter;
 
-    public ListaCharactersView(Context context) throws IOException, IOException {
+    public ListaCharactersView(Context context, List<Character> characters) throws IOException, IOException {
 
         this.context = context;
-
-        Moshi moshi = new Moshi.Builder().build();
-        String file = "character.json";
-        InputStream is = context.getAssets().open(file);
-
-        int size = is.available();
-        byte[] buffer = new byte[size];
-        is.read(buffer);
-        is.close();
-
-        String jsonString = new String(buffer, "UTF-8");
-        Type type = Types.newParameterizedType(List.class, Character.class);
-        JsonAdapter<List<Character>> jsonAdapter = moshi.adapter(type);
-        List<Character> characters = jsonAdapter.fromJson(jsonString);
-
-
-
-
         this.adapter = new ListaCharactersAdapter(context, characters);
     }
 

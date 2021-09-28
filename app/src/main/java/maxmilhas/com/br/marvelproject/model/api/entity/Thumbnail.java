@@ -2,26 +2,23 @@ package maxmilhas.com.br.marvelproject.model.api.entity;
 
 public class Thumbnail {
     private String path;
-    private String extesion;
+    private String extension;
 
-    public Thumbnail(String path, String extesion) {
+    public Thumbnail(String path, String extension) {
         this.path = path;
-        this.extesion = extesion;
+        this.extension = extension;
     }
 
     public String getPath() {
         return path;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public String getExtension() {
+        return extension;
     }
 
-    public String getExtesion() {
-        return extesion;
+    public String getStandardMedium() {
+        return path + "/" + "standard_medium" + "." + extension;
     }
 
-    public void setExtesion(String extesion) {
-        this.extesion = extesion;
-    }
 }

@@ -2,11 +2,11 @@ package maxmilhas.com.br.marvelproject.model.api.entity;
 
 import java.util.List;
 
-public class Results {
+public class DataDetails {
 
     private List<Character> results;
 
-    public Results(List<Character> results) {
+    public DataDetails(List<Character> results) {
         this.results = results;
     }
 
@@ -14,9 +14,6 @@ public class Results {
         return results;
     }
 
-    public void setResults(List<Character> results) {
-        this.results = results;
-    }
 }
 
 

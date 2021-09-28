@@ -1,20 +1,15 @@
 package maxmilhas.com.br.marvelproject.model.api.entity;
 
-import java.util.List;
-
 public class Data {
 
-    private Results results;
+    private DataDetails data;
 
-    public Data(Results results) {
-        this.results = results;
+    public Data(DataDetails data) {
+        this.data = data;
     }
 
-    public Results getResults() {
-        return results;
+    public DataDetails getResults() {
+        return data;
     }
 
-    public void setResults(Results results) {
-        this.results = results;
-    }
 }
