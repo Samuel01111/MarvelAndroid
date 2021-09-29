@@ -2,7 +2,6 @@ package maxmilhas.com.br.marvelproject.ui.recyclerview.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
-import maxmilhas.com.br.marvelproject.ui.activity.ListaCharactersActivity;
 
-public class ListaCharactersAdapter extends RecyclerView.Adapter {
+public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharactersAdapter.CharacterViewHolder> {
 
     private Context context;
     private List<Character> characters;
@@ -31,15 +29,14 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CharacterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View viewCriada = LayoutInflater.from(context).inflate(R.layout.item_character, parent, false);
         return new CharacterViewHolder(viewCriada);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
         fillViews(holder, position);
-
     }
 
     @Override
@@ -47,31 +44,25 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
         return characters.size();
     }
 
-    public void fillViews(@NonNull RecyclerView.ViewHolder holder, int position){
+    public void fillViews(@NonNull CharacterViewHolder holder, int position){
         Character character = characters.get(position);
-
-        TextView name = holder.itemView.findViewById(R.id.character_name);
-        TextView description =  holder.itemView.findViewById(R.id.character_description);
-        CardView cardView = holder.itemView.findViewById(R.id.item_character);
-        ImageView imageView = holder.itemView.findViewById(R.id.image_character);
 
         Glide.with(context)
                 .load(character.getThumbnail().getStandardMedium())
-                .into(imageView);
+                .into(holder.imageView);
 
-        if (character.getId() % 2 == 0){
-            cardView.setCardBackgroundColor(getRedColor());
-            name.setTextColor(Color.WHITE);
-            description.setTextColor(getGrayColor());
+        if (position % 2 == 0){
+            holder.cardView.setCardBackgroundColor(getRedColor());
+            holder.name.setTextColor(Color.WHITE);
+            holder.description.setTextColor(getGrayColor());
         } else {
-            cardView.setCardBackgroundColor(Color.DKGRAY);
-            name.setTextColor(Color.WHITE);
-            description.setTextColor(Color.LTGRAY);
+            holder.cardView.setCardBackgroundColor(Color.DKGRAY);
+            holder.name.setTextColor(Color.WHITE);
+            holder.description.setTextColor(Color.LTGRAY);
         }
-        name.setText(character.getName());
-        description.setText(character.getDescription());
-
-
+        holder.name.setText(character.getName());
+        holder.description.setText(character.getDescription());
+        getRedColor();
 
 //        fun ImageView.load(url: String) {
 //            Glide.with(context)
@@ -93,14 +84,15 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter {
         TextView description;
         CardView cardView;
         ImageView imageView;
+
         public CharacterViewHolder(@NonNull View itemView) {
             super(itemView);
-
-
+            name = itemView.findViewById(R.id.character_name);
+            description =  itemView.findViewById(R.id.character_description);
+            cardView = itemView.findViewById(R.id.item_character);
+            imageView = itemView.findViewById(R.id.image_character);
         }
+    }
 
-    }
-    public String a(){
-        return "a";
-    }
 }
+

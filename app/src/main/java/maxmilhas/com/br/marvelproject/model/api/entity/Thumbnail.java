@@ -13,12 +13,14 @@ public class Thumbnail {
         return path;
     }
 
+
+
     public String getExtension() {
         return extension;
     }
 
     public String getStandardMedium() {
-        return path + "/" + "standard_medium" + "." + extension;
+        return (path + "/" + "standard_large" + "." + extension).replace("http://", "https://");
     }
 
 }
