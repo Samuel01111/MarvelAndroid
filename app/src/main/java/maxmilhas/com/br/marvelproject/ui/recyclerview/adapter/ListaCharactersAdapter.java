@@ -10,9 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.List;
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
@@ -52,25 +50,19 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
                 .into(holder.imageView);
 
         if (position % 2 == 0){
-            holder.cardView.setCardBackgroundColor(getRedColor());
+            holder.cardView.setCardBackgroundColor(holder.cardView.getResources().getColor(R.color.Red));
             holder.name.setTextColor(Color.WHITE);
             holder.description.setTextColor(getGrayColor());
         } else {
-            holder.cardView.setCardBackgroundColor(Color.DKGRAY);
+            holder.cardView.setCardBackgroundColor(holder.cardView.getResources().getColor(R.color.Gray));
             holder.name.setTextColor(Color.WHITE);
             holder.description.setTextColor(Color.LTGRAY);
         }
         holder.name.setText(character.getName());
         holder.description.setText(character.getDescription());
-        getRedColor();
 
-//        fun ImageView.load(url: String) {
-//            Glide.with(context)
-//                    .load(url)
-//                    .into(this);
-//        }
+
     }
-
 
     public int getRedColor(){
         return Color.rgb(255, 86, 74);
@@ -93,6 +85,5 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
             imageView = itemView.findViewById(R.id.image_character);
         }
     }
-
 }
 

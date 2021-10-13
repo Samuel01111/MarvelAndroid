@@ -13,8 +13,6 @@ public class Thumbnail {
         return path;
     }
 
-
-
     public String getExtension() {
         return extension;
     }

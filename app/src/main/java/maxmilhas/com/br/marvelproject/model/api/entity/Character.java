@@ -19,9 +19,11 @@ public class Character {
     public Integer getId(){
         return id;
     }
+
     public void setId(Integer id){
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -30,9 +32,7 @@ public class Character {
         this.name = name;
     }
 
-    public Thumbnail getThumbnail() {
-        return thumbnail;
-    }
+    public Thumbnail getThumbnail() { return thumbnail; }
 
     public void setThumbnail(Thumbnail thumbnail) {
         this.thumbnail = thumbnail;
