@@ -8,17 +8,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import java.util.List;
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
+import maxmilhas.com.br.marvelproject.ui.fragments.CharacterDetailFragment;
 
 public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharactersAdapter.CharacterViewHolder> {
 
     private Context context;
     private List<Character> characters;
+    Context fragmentContext = new CharacterDetailFragment().getContext();
 
     public ListaCharactersAdapter(Context context, List<Character> characters){
         this.context = context;
@@ -34,7 +37,24 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
 
     @Override
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
-        fillViews(holder, position);
+        fillItemList(holder, position);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.conteiner_root, CharacterDetailFragment.newInstance(), "characterDetail")
+                        .addToBackStack(null)
+                        .commit();
+                Character character = characters.get(position);
+
+                holder.fragmentName.setText(character.getName());
+                holder.fragmentDescription.setText(character.getDescription());
+
+            }
+        });
     }
 
     @Override
@@ -42,7 +62,7 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         return characters.size();
     }
 
-    public void fillViews(@NonNull CharacterViewHolder holder, int position){
+    public void fillItemList(@NonNull CharacterViewHolder holder, int position){
         Character character = characters.get(position);
 
         Glide.with(context)
@@ -52,7 +72,7 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         if (position % 2 == 0){
             holder.cardView.setCardBackgroundColor(holder.cardView.getResources().getColor(R.color.Red));
             holder.name.setTextColor(Color.WHITE);
-            holder.description.setTextColor(getGrayColor());
+            holder.description.setTextColor(holder.cardView.getResources().getColor(R.color.Gray));
         } else {
             holder.cardView.setCardBackgroundColor(holder.cardView.getResources().getColor(R.color.Gray));
             holder.name.setTextColor(Color.WHITE);
@@ -61,14 +81,13 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         holder.name.setText(character.getName());
         holder.description.setText(character.getDescription());
 
-
     }
+    public void fillFragment_detail(@NonNull CharacterViewHolder holder, Character character) {
+//        Glide.with(new CharacterDetailFragment().getActivity())
+//                .load(character.getThumbnail().getStandardMedium())
+//                .into(holder.fragmentImageView);
 
-    public int getRedColor(){
-        return Color.rgb(255, 86, 74);
-    }
-    public int getGrayColor(){
-        return Color.rgb(59, 59, 59);
+
     }
 
     class CharacterViewHolder extends RecyclerView.ViewHolder {
@@ -76,14 +95,22 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         TextView description;
         CardView cardView;
         ImageView imageView;
+        ImageView fragmentImageView;
+        TextView fragmentName;
+        TextView fragmentDescription;
 
         public CharacterViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.character_name);
-            description =  itemView.findViewById(R.id.character_description);
+            description = itemView.findViewById(R.id.character_description);
             cardView = itemView.findViewById(R.id.item_character);
             imageView = itemView.findViewById(R.id.image_character);
+            fragmentImageView = itemView.findViewById(R.id.fragment_image);
+            fragmentName = itemView.findViewById(R.id.fragment_name);
+            fragmentDescription = itemView.findViewById(R.id.fragment_description);
+
         }
+
     }
 }
 

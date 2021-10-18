@@ -11,8 +11,8 @@ public class ListaCharactersView {
     private Context context;
     private final ListaCharactersAdapter adapter;
 
-    public ListaCharactersView(Context context, List<Character> characters) {
 
+    public ListaCharactersView(Context context, List<Character> characters) {
         this.context = context;
         this.adapter = new ListaCharactersAdapter(context, characters);
     }
@@ -20,7 +20,6 @@ public class ListaCharactersView {
     public void configAdapter(RecyclerView listaDeCharacter){
         listaDeCharacter.setAdapter(adapter);
     }
-
 }
 
 
