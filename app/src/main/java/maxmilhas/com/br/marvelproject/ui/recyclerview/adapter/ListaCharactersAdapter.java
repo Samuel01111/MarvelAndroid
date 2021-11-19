@@ -21,7 +21,6 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
 
     private Context context;
     private List<Character> characters;
-    Context fragmentContext = new CharacterDetailFragment().getContext();
 
     public ListaCharactersAdapter(Context context, List<Character> characters){
         this.context = context;
@@ -42,20 +41,18 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                int characterId = characters.get(position).getId();
+
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
                 activity.getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.conteiner_root, CharacterDetailFragment.newInstance(), "characterDetail")
+                        .replace(R.id.conteiner_root, CharacterDetailFragment.newInstance(characterId), "characterDetail")
                         .addToBackStack(null)
                         .commit();
-                Character character = characters.get(position);
-
-                holder.fragmentName.setText(character.getName());
-                holder.fragmentDescription.setText(character.getDescription());
-
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -66,7 +63,7 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         Character character = characters.get(position);
 
         Glide.with(context)
-                .load(character.getThumbnail().getStandardMedium())
+                .load(character.getThumbnail().getStandardLarge())
                 .into(holder.imageView);
 
         if (position % 2 == 0){
@@ -80,14 +77,6 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         }
         holder.name.setText(character.getName());
         holder.description.setText(character.getDescription());
-
-    }
-    public void fillFragment_detail(@NonNull CharacterViewHolder holder, Character character) {
-//        Glide.with(new CharacterDetailFragment().getActivity())
-//                .load(character.getThumbnail().getStandardMedium())
-//                .into(holder.fragmentImageView);
-
-
     }
 
     class CharacterViewHolder extends RecyclerView.ViewHolder {
@@ -96,8 +85,6 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         CardView cardView;
         ImageView imageView;
         ImageView fragmentImageView;
-        TextView fragmentName;
-        TextView fragmentDescription;
 
         public CharacterViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,12 +92,8 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
             description = itemView.findViewById(R.id.character_description);
             cardView = itemView.findViewById(R.id.item_character);
             imageView = itemView.findViewById(R.id.image_character);
-            fragmentImageView = itemView.findViewById(R.id.fragment_image);
-            fragmentName = itemView.findViewById(R.id.fragment_name);
-            fragmentDescription = itemView.findViewById(R.id.fragment_description);
-
+            fragmentImageView = itemView.findViewById(R.id.image);
         }
-
     }
 }
 

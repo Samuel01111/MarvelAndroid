@@ -18,7 +18,6 @@ public class ListaCharactersActivity extends AppCompatActivity {
                     .add(R.id.conteiner_root, CharacterListFragment.newInstance(), "characterList")
                     .commit();
         }
-
         setTitle("Characters");
     }
 

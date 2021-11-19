@@ -13,18 +13,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.BreakIterator;
 import java.util.List;
 
 import maxmilhas.com.br.marvelproject.R;
-import maxmilhas.com.br.marvelproject.model.api.CharactersCallbackInterface;
+import maxmilhas.com.br.marvelproject.model.api.repository.callback.AllCharactersCallbackInterface;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 import maxmilhas.com.br.marvelproject.model.api.repository.CharacterRepository;
 import maxmilhas.com.br.marvelproject.ui.ListaCharactersView;
-import maxmilhas.com.br.marvelproject.ui.recyclerview.adapter.ListaCharactersAdapter;
 
 public class CharacterListFragment extends Fragment {
-
 
     public static CharacterListFragment newInstance() {
         Bundle args = new Bundle();
@@ -41,31 +38,25 @@ public class CharacterListFragment extends Fragment {
         return view;
     }
 
-
     private void setupRecyclerView(Context context) {
         CharacterRepository characterRepository = new CharacterRepository();
 
-        characterRepository.fetchCharacters(new CharactersCallbackInterface() {
-                        @Override
-                        public void onResponse(List<Character> characters) {
-                            ListaCharactersView charactersView = new ListaCharactersView(context, characters);
-                            RecyclerView listCharacters = getView().findViewById(R.id.list_characters_recyclerview);
-                            charactersView.configAdapter(listCharacters);
-                            LinearLayoutManager layoutManager = new LinearLayoutManager(context);
-                            listCharacters.setLayoutManager(layoutManager);
+        characterRepository.fetchAllCharacters(new AllCharactersCallbackInterface() {
+                @Override
+                public void onResponse(List<Character> characters) {
+                    ListaCharactersView charactersView = new ListaCharactersView(context, characters);
+                    RecyclerView listCharacters = getView().findViewById(R.id.list_characters_recyclerview);
+                    charactersView.configAdapter(listCharacters);
+                    LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+                    listCharacters.setLayoutManager(layoutManager);
+                }
 
-                        }
-
-                        @Override
-                        public void onFailure(Throwable t) {
-                            Log.d("Fail", t.getMessage() + "Error in the Requisition");
-                        }
-
-
-                    }
-
+                @Override
+                public void onFailure(Throwable t) {
+                    Log.d("Fail", t.getMessage() + "Error in the Requisition");
+                }
+            }
         );
-
     }
 }
 

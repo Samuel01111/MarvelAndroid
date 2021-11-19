@@ -7,7 +7,7 @@ public class Character {
     private String description;
     private Thumbnail thumbnail;
 
-    public Character(){
+    public Character() {
 
     }
     public Character(Integer id, String name, Thumbnail thumbnail, String description) {

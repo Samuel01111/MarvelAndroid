@@ -1,6 +1,7 @@
 package maxmilhas.com.br.marvelproject.model.api.entity;
 
 public class Thumbnail {
+
     private String path;
     private String extension;
 
@@ -17,8 +18,12 @@ public class Thumbnail {
         return extension;
     }
 
-    public String getStandardMedium() {
+    public String getStandardLarge() {
         return (path + "/" + "standard_large" + "." + extension).replace("http://", "https://");
+    }
+
+    public String getLandscapeAmazing() {
+        return (path + "/" + "landscape_amazing" + "." + extension).replace("http://", "https://");
     }
 
 }

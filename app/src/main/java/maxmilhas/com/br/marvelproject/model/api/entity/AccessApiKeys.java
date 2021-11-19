@@ -22,7 +22,8 @@ public class AccessApiKeys {
     public String getTs(){
         return TS;
     }
-    public String getHash(){
+
+    public String getHash() {
         StringUtils stringUtils = new StringUtils();
         String hashUtil = (getTs() + getPrivateKey() + getApiKey());
         return stringUtils.md5(hashUtil);

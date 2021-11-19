@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:orientation="vertical"
-    tools:context=".ui.fragments.CharacterDetailFragment">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,39 +13,41 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/fragment_image"
-            android:contentDescription="@null"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
+            android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
 
 
         <TextView
             android:id="@+id/fragment_description"
+            android:textSize="16dp"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/image"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_below="@id/fragment_image"
-            tools:text="Yennefer de Vengerberg é uma das personagens principais da franquia The Witcher, que já engloba coletâneas de contos, uma saga de oito romances, três jogos de videogame de sucesso e uma série adaptada e veiculada pela Netflix, que já tem uma temporada e ganhará uma segunda em dezembro de 2021."
-            />
+            android:text="......................................................................................................................................................................................................."
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/fragment_name"
             style="@style/TextAppearance.AppCompat.Title"
-            android:layout_alignBottom="@id/fragment_image"
+            android:layout_alignBottom="@id/image"
             android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            tools:text="Yennefer"
+            android:text=".........."
             android:textColor="@android:color/white"
+            tools:ignore="HardcodedText"
             android:layout_alignParentRight="true" />
     </RelativeLayout>
 
