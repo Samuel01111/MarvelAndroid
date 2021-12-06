@@ -1,20 +1,27 @@
-package maxmilhas.com.br.marvelproject.model;
+package maxmilhas.com.br.marvelproject.model.api.entity;
 
 public class Character {
 
     private Integer id;
     private String name;
     private String description;
-    private String thumbnail;
+    private Thumbnail thumbnail;
 
-    public Character(){
+    public Character() {
 
     }
-    public Character(Integer id, String name, String thumbnail, String description) {
+    public Character(Integer id, String name, Thumbnail thumbnail, String description) {
         this.id = id;
         this.name = name;
         this.thumbnail = thumbnail;
         this.description = description;
+    }
+    public Integer getId(){
+        return id;
+    }
+
+    public void setId(Integer id){
+        this.id = id;
     }
 
     public String getName() {
@@ -25,11 +32,9 @@ public class Character {
         this.name = name;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
-    }
+    public Thumbnail getThumbnail() { return thumbnail; }
 
-    public void setThumbnail(String thumbnail) {
+    public void setThumbnail(Thumbnail thumbnail) {
         this.thumbnail = thumbnail;
     }
 
