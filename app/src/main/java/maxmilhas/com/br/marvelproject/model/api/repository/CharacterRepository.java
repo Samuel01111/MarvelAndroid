@@ -1,14 +1,19 @@
 package maxmilhas.com.br.marvelproject.model.api.repository;
 
+import android.os.Build;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
+
 import java.util.List;
-import maxmilhas.com.br.marvelproject.model.api.repository.callback.AllCharactersCallbackInterface;
+
 import maxmilhas.com.br.marvelproject.model.api.MarvelService;
 import maxmilhas.com.br.marvelproject.model.api.RetrofitBuilder;
 import maxmilhas.com.br.marvelproject.model.api.entity.AccessApiKeys;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 import maxmilhas.com.br.marvelproject.model.api.entity.Data;
 import maxmilhas.com.br.marvelproject.model.api.entity.DataDetails;
+import maxmilhas.com.br.marvelproject.model.api.repository.callback.AllCharactersCallbackInterface;
 import maxmilhas.com.br.marvelproject.model.api.repository.callback.CharacterCallbackInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,6 +29,7 @@ public class CharacterRepository {
         accessApiKeys = new AccessApiKeys();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void fetchAllCharacters(AllCharactersCallbackInterface allCharactersCallbackInterface){
         MarvelService service = retrofit.create(MarvelService.class);
 

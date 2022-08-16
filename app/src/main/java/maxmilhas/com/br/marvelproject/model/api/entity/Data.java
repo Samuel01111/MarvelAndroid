@@ -11,5 +11,4 @@ public class Data {
     public DataDetails getResults() {
         return data;
     }
-
 }

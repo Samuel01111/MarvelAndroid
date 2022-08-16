@@ -1,8 +1,11 @@
 package maxmilhas.com.br.marvelproject.ui;
 
 import android.content.Context;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
+
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 import maxmilhas.com.br.marvelproject.ui.recyclerview.adapter.ListaCharactersAdapter;
 
@@ -20,5 +23,3 @@ public class ListaCharactersView {
         listaDeCharacter.setAdapter(adapter);
     }
 }
-
-

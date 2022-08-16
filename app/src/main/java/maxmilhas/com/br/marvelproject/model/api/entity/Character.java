@@ -7,15 +7,15 @@ public class Character {
     private String description;
     private Thumbnail thumbnail;
 
-    public Character() {
+    public Character() {}
 
-    }
     public Character(Integer id, String name, Thumbnail thumbnail, String description) {
         this.id = id;
         this.name = name;
         this.thumbnail = thumbnail;
         this.description = description;
     }
+
     public Integer getId(){
         return id;
     }
@@ -45,5 +45,4 @@ public class Character {
     public void setDescription(String description) {
         this.description = description;
     }
-
 }

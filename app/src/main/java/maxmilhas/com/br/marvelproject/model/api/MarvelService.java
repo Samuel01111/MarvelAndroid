@@ -13,5 +13,4 @@ public interface MarvelService {
 
     @GET("characters/{characterId}")
     Call<Data> getCharacterById(@Path("characterId") int characterId, @Query("apikey") String apiKey, @Query("ts") String ts, @Query("hash") String hash);
-
 }

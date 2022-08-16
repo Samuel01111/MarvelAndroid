@@ -7,12 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+
 import java.util.List;
+
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 import maxmilhas.com.br.marvelproject.ui.fragments.CharacterDetailFragment;
@@ -38,21 +42,17 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
         fillItemList(holder, position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                int characterId = characters.get(position).getId();
+        holder.itemView.setOnClickListener(v -> {
+            int characterId = characters.get(position).getId();
 
-                AppCompatActivity activity = (AppCompatActivity) v.getContext();
-                activity.getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.conteiner_root, CharacterDetailFragment.newInstance(characterId), "characterDetail")
-                        .addToBackStack(null)
-                        .commit();
-            }
+            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.conteiner_root, CharacterDetailFragment.newInstance(characterId), "characterDetail")
+                    .addToBackStack(null)
+                    .commit();
         });
     }
-
 
     @Override
     public int getItemCount() {
@@ -96,4 +96,3 @@ public class ListaCharactersAdapter extends RecyclerView.Adapter<ListaCharacters
         }
     }
 }
-

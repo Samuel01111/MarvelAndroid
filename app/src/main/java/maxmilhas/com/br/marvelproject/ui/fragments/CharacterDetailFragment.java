@@ -18,11 +18,10 @@ import java.io.Serializable;
 
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
-import maxmilhas.com.br.marvelproject.model.api.repository.callback.CharacterCallbackInterface;
 import maxmilhas.com.br.marvelproject.model.api.repository.CharacterRepository;
+import maxmilhas.com.br.marvelproject.model.api.repository.callback.CharacterCallbackInterface;
 
 public class CharacterDetailFragment extends Fragment implements Serializable {
-
 
     public static CharacterDetailFragment newInstance(int characterId) {
         Bundle bundle = new Bundle();
@@ -62,5 +61,4 @@ public class CharacterDetailFragment extends Fragment implements Serializable {
         });
         return view;
     }
-
 }

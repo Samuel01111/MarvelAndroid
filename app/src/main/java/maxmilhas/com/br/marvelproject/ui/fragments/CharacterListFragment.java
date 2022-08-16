@@ -1,6 +1,7 @@
 package maxmilhas.com.br.marvelproject.ui.fragments;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,9 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import maxmilhas.com.br.marvelproject.R;
-import maxmilhas.com.br.marvelproject.model.api.repository.callback.AllCharactersCallbackInterface;
 import maxmilhas.com.br.marvelproject.model.api.entity.Character;
 import maxmilhas.com.br.marvelproject.model.api.repository.CharacterRepository;
+import maxmilhas.com.br.marvelproject.model.api.repository.callback.AllCharactersCallbackInterface;
 import maxmilhas.com.br.marvelproject.ui.ListaCharactersView;
 
 public class CharacterListFragment extends Fragment {
@@ -30,6 +32,7 @@ public class CharacterListFragment extends Fragment {
         return fragment;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class CharacterListFragment extends Fragment {
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void setupRecyclerView(Context context) {
         CharacterRepository characterRepository = new CharacterRepository();
 
@@ -59,4 +63,3 @@ public class CharacterListFragment extends Fragment {
         );
     }
 }
-

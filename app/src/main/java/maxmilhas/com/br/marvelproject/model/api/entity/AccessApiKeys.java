@@ -8,8 +8,7 @@ public class AccessApiKeys {
     private static final String PRIVATE_KEY = "e43fbb0823972c2974ede2804dbcb1944a67c0e5";
     private static final String TS = "1632441614";
 
-    public AccessApiKeys() {
-    }
+    public AccessApiKeys() {}
 
     public String getApiKey() {
         return API_KEY;

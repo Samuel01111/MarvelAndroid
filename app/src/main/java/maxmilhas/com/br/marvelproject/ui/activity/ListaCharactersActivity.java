@@ -1,7 +1,9 @@
 package maxmilhas.com.br.marvelproject.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import maxmilhas.com.br.marvelproject.R;
 import maxmilhas.com.br.marvelproject.ui.fragments.CharacterListFragment;
 
@@ -20,6 +22,4 @@ public class ListaCharactersActivity extends AppCompatActivity {
         }
         setTitle("Characters");
     }
-
-
 }

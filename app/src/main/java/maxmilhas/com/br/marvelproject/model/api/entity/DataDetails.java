@@ -13,7 +13,6 @@ public class DataDetails {
     public List<Character> getResults() {
         return results;
     }
-
 }
 
 

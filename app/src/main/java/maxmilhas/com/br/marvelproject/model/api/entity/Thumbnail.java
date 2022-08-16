@@ -25,5 +25,4 @@ public class Thumbnail {
     public String getLandscapeAmazing() {
         return (path + "/" + "landscape_amazing" + "." + extension).replace("http://", "https://");
     }
-
 }
